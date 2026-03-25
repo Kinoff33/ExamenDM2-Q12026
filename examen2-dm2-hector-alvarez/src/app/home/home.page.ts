@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Capacitor } from '@capacitor/core';
+import { Router } from '@angular/router';
 import {
   IonButton,
   IonContent,
@@ -32,11 +33,10 @@ import { imageOutline, locationSharp } from 'ionicons/icons';
 export class HomePage {
   @ViewChild('imagePicker') private imagePicker?: ElementRef<HTMLInputElement>;
 
-  protected readonly thoughtPrompt = '¿Qué estas pensando hoy?';
+  protected readonly thoughtPrompt = '\u00BFQu\u00E9 estas pensando hoy?';
   protected imageUrl: string | null = null;
-  protected locationLabel: string | null = null;
 
-  constructor() {
+  constructor(private readonly router: Router) {
     addIcons({ imageOutline, locationSharp });
   }
 
@@ -72,25 +72,8 @@ export class HomePage {
     input.value = '';
   }
 
-  protected async loadCurrentLocation(): Promise<void> {
-    if (!navigator.geolocation) {
-      this.locationLabel = 'No se pudo obtener la ubicacion.';
-      return;
-    }
-
-    const position = await new Promise<GeolocationPosition>((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, reject, {
-        enableHighAccuracy: true,
-        timeout: 10000,
-      });
-    }).catch(() => null);
-
-    if (!position) {
-      this.locationLabel = 'Permiso de ubicacion no concedido.';
-      return;
-    }
-
-    this.locationLabel = `${position.coords.latitude.toFixed(5)}, ${position.coords.longitude.toFixed(5)}`;
+  protected goToMap(): void {
+    void this.router.navigateByUrl('/map');
   }
 
   private openFilePicker(): void {

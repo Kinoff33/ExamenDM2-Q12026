@@ -23,7 +23,7 @@
           <ion-icon slot="icon-only" name="image-outline"></ion-icon>
         </ion-button>
 
-        <ion-button class="action-button" fill="solid" (click)="loadCurrentLocation()">
+        <ion-button class="action-button" fill="solid" (click)="goToMap()">
           <ion-icon slot="icon-only" name="location-sharp"></ion-icon>
         </ion-button>
       </div>
@@ -35,8 +35,6 @@
         accept="image/*"
         (change)="onFileSelected($event)"
       />
-
-      <p *ngIf="locationLabel" class="location-text">{{ locationLabel }}</p>
     </div>
   </section>
 </ion-content>

@@ -1,0 +1,32 @@
+<ion-header class="map-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ubicacion Actual</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="map-content">
+  <section class="map-shell">
+    <div class="map-copy">
+      <h2>Georreferenciacion activa</h2>
+      <p *ngIf="coordinatesLabel">{{ coordinatesLabel }}</p>
+      <p *ngIf="!coordinatesLabel && !errorMessage">Solicitando permisos y ubicacion del dispositivo...</p>
+      <p *ngIf="errorMessage" class="error-text">{{ errorMessage }}</p>
+    </div>
+
+    <div class="map-stage">
+      <div #mapCanvas class="map-canvas"></div>
+
+      <div *ngIf="isLoading" class="map-overlay">
+        <ion-spinner name="crescent"></ion-spinner>
+        <span>Cargando mapa...</span>
+      </div>
+
+      <div *ngIf="errorMessage && !isLoading" class="map-overlay map-overlay-error">
+        <span>{{ errorMessage }}</span>
+      </div>
+    </div>
+  </section>
+</ion-content>

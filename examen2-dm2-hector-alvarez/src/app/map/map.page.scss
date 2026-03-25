@@ -1,0 +1,68 @@
+.map-header ion-toolbar {
+  --background: #ffffff;
+  --border-color: #d0d0d0;
+  --color: #111111;
+}
+
+.map-content {
+  --background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.9), rgba(217, 226, 243, 0.96));
+}
+
+.map-shell {
+  width: min(100%, 470px);
+  min-height: 100%;
+  margin: 20px auto 0;
+  padding: 16px 12px 24px;
+  background: #ffffff;
+  box-shadow: 0 0 0 1px #d8d8d8, 0 18px 40px rgba(48, 66, 102, 0.12);
+}
+
+.map-copy h2 {
+  margin: 0;
+  color: #173160;
+  font-size: 1.2rem;
+}
+
+.map-copy p {
+  margin: 10px 0 0;
+  color: #5f6d87;
+  font-size: 0.95rem;
+}
+
+.error-text {
+  color: #bf3d3d;
+}
+
+.map-stage {
+  position: relative;
+  margin-top: 16px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid #d7e2f4;
+  background: linear-gradient(180deg, #eef4ff, #dce7fb);
+}
+
+.map-canvas {
+  width: 100%;
+  min-height: 460px;
+}
+
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  background: rgba(244, 247, 255, 0.88);
+  color: #173160;
+  text-align: center;
+}
+
+.map-overlay-error {
+  background: rgba(255, 245, 245, 0.92);
+  color: #b33b3b;
+}
