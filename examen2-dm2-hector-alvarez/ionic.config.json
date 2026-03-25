@@ -1,0 +1,7 @@
+{
+  "name": "examen2-dm2-hector-alvarez",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
